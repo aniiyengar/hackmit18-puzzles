@@ -1,3 +1,3 @@
-# hackmit18-puzzles
+# HackMIT Puzzles 2018
 
-Just so much bad code
+Just so much terrible code in here

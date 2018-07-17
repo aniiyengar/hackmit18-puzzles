@@ -3,7 +3,7 @@ import requests
 import scipy.stats
 import random
 
-base_user = 'kamiquaziii_871f49'
+base_user = raw_input('Username: ')
 
 data = requests.get("https://gerry.hackmirror.icu/u/%s/voters.json" % base_user).json()['voters_by_block']
 
@@ -135,7 +135,6 @@ def eq(x, y):
     return False not in [x[i] - y[i] == 0 for i in range(len(x))]
 
 # Genetic algorithm pls
-# Interstate traffic is alive
 
 found_mutations = []
 

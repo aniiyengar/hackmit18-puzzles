@@ -5,7 +5,7 @@ import networkx as nx
 import requests
 
 base_url = 'https://gps.hackmirror.icu/api'
-base_user = 'kamiquaziii_45dc2b'
+base_user = raw_input('Username: ')
 
 target_node = 22499
 safety = 3
@@ -40,7 +40,7 @@ def path(maze, start):
         elif diff == -150:
             m.append('up')
         else:
-            print('wht the fuck')
+            print('trash happened')
 
     return lst, m
 
@@ -85,12 +85,12 @@ while not found:
             print('Invalid move ass')
             break
         if curr_pos != expected_dest:
-            # Fuck shit
+            # Noo
             try:
                 positions, moves = path(G, curr_pos)
                 positions.pop(0)
             except:
-                print('\n\nFuck. No paths left.\n\n\n==================\n\n\n')
+                print('\n\nNo paths left.\n\n\n==================\n\n\n')
                 break
 
         print('== current position: ' + str(curr_pos) + ' ==')

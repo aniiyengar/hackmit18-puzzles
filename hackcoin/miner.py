@@ -70,7 +70,8 @@ def run_mine_check(prev, q):
         n = load_blockchain()
         print(n.head.hash_block())
         if n.head.hash_block() != prev.head.hash_block():
-            print('Nevermind, fuck it.')
+            print('Nevermind we got scooped')
+            q.put('no')
             break
 
 def mine_till_found(block):
@@ -103,7 +104,7 @@ def mine_till_found(block):
 
     r = q.get()
 
-    if r == 'fuck':
+    if r == 'no':
         return False
 
     block.nonce = r
@@ -211,15 +212,15 @@ def run_miner():
         )
 
         for i in range(9):
-            fuck = Transaction(
+            f = Transaction(
                 id = gen_uuid(),
                 owner=public,
                 receiver='15e489dbed010b78afc592a1eaf1cae26522b1641a27c4303e1e7959a3860260',
                 coins=1090,
                 signature=None
             )
-            fuck.signature=sign(fuck.comp(), private)
-            txns.append(fuck)
+            f.signature=sign(f.comp(), private)
+            txns.append(f)
         reward.signature = sign(reward.comp(), private)
         txns.append(reward)
 
